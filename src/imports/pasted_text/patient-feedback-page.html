@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ethereal Health | Patient Feedback</title>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Manrope:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary": "#94000f",
+                        "on-error": "#ffffff",
+                        "surface-container": "#eceef0",
+                        "inverse-on-surface": "#eff1f3",
+                        "surface-tint": "#005db6",
+                        "background": "#f7f9fb",
+                        "primary": "#00478d",
+                        "on-secondary-fixed": "#00201d",
+                        "secondary": "#006a63",
+                        "tertiary-fixed": "#ffdad6",
+                        "surface": "#f7f9fb",
+                        "on-primary": "#ffffff",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container-highest": "#e0e3e5",
+                        "inverse-primary": "#a9c7ff",
+                        "on-tertiary": "#ffffff",
+                        "surface-container-low": "#f2f4f6",
+                        "on-surface-variant": "#424752",
+                        "tertiary-fixed-dim": "#ffb4ac",
+                        "tertiary-container": "#c00819",
+                        "surface-variant": "#e0e3e5",
+                        "on-surface": "#191c1e",
+                        "secondary-fixed": "#7cf6ea",
+                        "on-secondary-container": "#006f67",
+                        "outline": "#727783",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#a9c7ff",
+                        "on-secondary": "#ffffff",
+                        "on-background": "#191c1e",
+                        "secondary-fixed-dim": "#5ddacd",
+                        "primary-fixed": "#d6e3ff",
+                        "on-tertiary-fixed": "#410003",
+                        "on-tertiary-container": "#ffcec9",
+                        "on-primary-fixed-variant": "#00468c",
+                        "surface-bright": "#f7f9fb",
+                        "on-tertiary-fixed-variant": "#93000f",
+                        "error-container": "#ffdad6",
+                        "inverse-surface": "#2d3133",
+                        "surface-container-high": "#e6e8ea",
+                        "surface-dim": "#d8dadc",
+                        "outline-variant": "#c2c6d4",
+                        "secondary-container": "#79f3e7",
+                        "on-secondary-fixed-variant": "#00504a",
+                        "on-primary-fixed": "#001b3d",
+                        "on-primary-container": "#c8daff",
+                        "primary-container": "#005eb8",
+                        "on-error-container": "#93000a"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Manrope"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        .active-nav-bg {
+            background: linear-gradient(90deg, rgba(214, 227, 255, 0.5) 0%, rgba(214, 227, 255, 0) 100%);
+        }
+    </style>
+</head>
+<body class="bg-background font-body text-on-surface antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full flex justify-between items-center px-8 h-16 bg-white/80 dark:bg-slate-900/80 backdrop-blur-lg z-50 shadow-[0_4px_20px_rgba(0,71,141,0.04)]">
+<div class="flex items-center gap-8">
+<span class="text-xl font-bold text-blue-900 dark:text-blue-100 tracking-tighter font-headline">Ethereal Health</span>
+<nav class="hidden md:flex gap-6 items-center">
+<a class="text-slate-500 dark:text-slate-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-3 py-1 rounded-full text-sm" href="#">Overview</a>
+<a class="text-slate-500 dark:text-slate-400 hover:bg-blue-50/50 dark:hover:bg-blue-900/20 transition-colors px-3 py-1 rounded-full text-sm" href="#">Services</a>
+<a class="text-blue-700 dark:text-blue-400 font-bold border-b-2 border-blue-600 px-3 py-1 text-sm" href="#">Feedback</a>
+</nav>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative group hidden lg:block">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+<input class="pl-10 pr-4 py-1.5 rounded-full bg-surface-container-low border-none text-sm w-64 focus:ring-2 focus:ring-primary/20 transition-all" placeholder="Search records..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-slate-500 hover:bg-blue-50/50 p-2 rounded-full transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined text-slate-500 hover:bg-blue-50/50 p-2 rounded-full transition-all" data-icon="settings">settings</button>
+<div class="h-8 w-8 rounded-full overflow-hidden border border-outline-variant/30">
+<img alt="Patient Profile Avatar" data-alt="Close up portrait of a middle-aged woman with a friendly, calm expression in professional soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCpwni1qVBUYL1kJ-tEZHR5bvl2sddpyOlD0ZXMYFePEg649XwNzD6CkMgZ-iNDuwpVIqrmxtn9AL2ko8UzghcEGf6Qf9gp94SyUOjprV0Ip6L94Thu91sRdOv0LXO8fW0z65lN8F-19x5vXVt4VqoQIxwJlNzzL5o8Nvlq3fVQtg3VNp3uI1LqLhO2yyLD-CW3OZKSDc79XHrTM_dtj6te_49JXm0CV0GJBp2kZKz8GmWsB0yPfFqq-aa8p8NefquSDNvVeroiMxPo"/>
+</div>
+</div>
+</header>
+<!-- SideNavBar -->
+<aside class="h-screen w-64 fixed left-0 top-0 pt-16 bg-slate-50 dark:bg-slate-950 flex flex-col gap-2 py-8 pr-4 z-40">
+<div class="px-6 mb-8 mt-4">
+<h2 class="text-sm font-semibold text-on-surface">Alex Rivers</h2>
+<p class="text-xs text-slate-500">ID: #ETH-99281</p>
+</div>
+<nav class="flex flex-col gap-1">
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-6 py-3 hover:text-blue-600 dark:hover:text-blue-300 hover:translate-x-1 transition-transform font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-6 py-3 hover:text-blue-600 dark:hover:text-blue-300 hover:translate-x-1 transition-transform font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="description">description</span>
+<span>Medical Records</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-6 py-3 hover:text-blue-600 dark:hover:text-blue-300 hover:translate-x-1 transition-transform font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="calendar_today">calendar_today</span>
+<span>Appointments</span>
+</a>
+<a class="flex items-center gap-3 text-slate-500 dark:text-slate-400 px-6 py-3 hover:text-blue-600 dark:hover:text-blue-300 hover:translate-x-1 transition-transform font-['Inter'] font-medium text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="monitoring">monitoring</span>
+<span>Health Insights</span>
+</a>
+<a class="flex items-center gap-3 text-blue-800 dark:text-blue-200 bg-blue-100/50 dark:bg-blue-900/30 rounded-r-full font-semibold px-6 py-3 font-['Inter'] text-sm" href="#">
+<span class="material-symbols-outlined" data-icon="rate_review">rate_review</span>
+<span>Feedback</span>
+</a>
+</nav>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 pb-16 px-12 max-w-6xl">
+<!-- Editorial Header Section -->
+<header class="mb-12">
+<h1 class="text-5xl font-headline font-extrabold text-primary tracking-tight mb-4">Share Your Experience</h1>
+<p class="text-on-surface-variant max-w-2xl text-lg leading-relaxed">
+                Your feedback is the catalyst for our clinical excellence. Help us refine our sanctuary of care by rating your recent interaction.
+            </p>
+</header>
+<div class="grid grid-cols-12 gap-8 items-start">
+<!-- Left Column: Selection & Identity -->
+<div class="col-span-12 lg:col-span-4 space-y-8">
+<!-- Toggle Selector -->
+<div class="bg-surface-container-low rounded-full p-1.5 flex shadow-inner">
+<button class="flex-1 py-2 px-4 rounded-full bg-white text-primary font-semibold text-sm shadow-sm transition-all">Rate a Doctor</button>
+<button class="flex-1 py-2 px-4 rounded-full text-on-surface-variant font-medium text-sm hover:text-primary transition-all">Hospital Services</button>
+</div>
+<!-- Recent Visits Carousel/List (Editorial Pattern) -->
+<section>
+<h3 class="text-xs font-bold uppercase tracking-widest text-outline mb-4">Recent Appointments</h3>
+<div class="space-y-4">
+<!-- Active Card -->
+<div class="bg-surface-container-lowest border-2 border-primary/20 p-5 rounded-full shadow-sm relative overflow-hidden group cursor-pointer transition-all hover:scale-[1.02]">
+<div class="absolute right-0 top-0 h-full w-1 bg-primary"></div>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full overflow-hidden shrink-0">
+<img alt="Dr. Julian Vane Avatar" data-alt="Portrait of a professional male doctor with glasses and a white coat, looking warm and approachable, high-key lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5EtFVSgeTVPNQWK99YEnzuAx0uc6EnvhLPE94eE_HNlFsklGZn5NWhybikJNsZWXjMMqQm1CPE0cv1byFND4VHt9rtw2eYMva-osNxztqvjIRZhRniM9UimFsVyZG-zjHRJf54mBOq5s8oelcPrSJKCxLXGlgYY6pzgjkVdknhtLPkIHHcN3aPrJloU_UVG2tRcCjNftC6xAp5oRdI5UvgU1TbKGpjF2nuZHd8ZI4g-RkjIWsDZ3oR2OM0jeVK0QCmvAmPNrMDVmK"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Dr. Julian Vane</h4>
+<p class="text-xs text-on-surface-variant">Cardiology • Oct 12, 2023</p>
+</div>
+</div>
+</div>
+<!-- Inactive Card -->
+<div class="bg-surface-container-low p-5 rounded-full opacity-70 hover:opacity-100 transition-all cursor-pointer">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-full overflow-hidden shrink-0">
+<img alt="Dr. Sarah Chen Avatar" data-alt="Portrait of a female specialist doctor in a clinic setting, soft natural light, professional medical background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhwlcJwAlWSAmMwt0m6Rm_IxSMJoZuIL8uv0eYZsqVj5i1Ud3RI_Sm-BMPptMEeZi9CrtL-rRRjVQ3Oz4nGobCRUqitDpR4CD-nP7dZg6W8wRNpdtAkm-Q1FxeVCKs0CNJPjgMJmdorNWuCnKUuLjO0wU2StGUDs6YwtlQB4iAfKwL6UZFrXde6r1IPqM395BwhlAzztA_vtXcw_tvfMb1xNnIwjc6-ZokVse9zxgdT58oB1_6s41X3ngQqKYyYOSspoWdOqI-G12Q"/>
+</div>
+<div>
+<h4 class="font-headline font-bold text-on-surface">Dr. Sarah Chen</h4>
+<p class="text-xs text-on-surface-variant">General Practice • Sept 28, 2023</p>
+</div>
+</div>
+</div>
+<button class="w-full py-3 text-sm text-primary font-semibold hover:underline decoration-primary/30 underline-offset-4">View All Past Visits</button>
+</div>
+</section>
+</div>
+<!-- Right Column: Detailed Feedback Form (Glassmorphism Card) -->
+<div class="col-span-12 lg:col-span-8">
+<div class="bg-surface-container-lowest/80 backdrop-blur-xl rounded-full p-10 border border-white shadow-[0_10px_40px_-10px_rgba(0,0,0,0.05)]">
+<div class="flex justify-between items-end mb-8">
+<div>
+<span class="text-sm font-medium text-primary bg-primary/5 px-3 py-1 rounded-full mb-3 inline-block">Evaluating Excellence</span>
+<h2 class="text-3xl font-headline font-bold text-on-surface">Detailed Evaluation</h2>
+</div>
+<div class="flex gap-1">
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-primary text-4xl" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-outline-variant text-4xl" style="font-variation-settings: 'FILL' 0;">star</span>
+</div>
+</div>
+<!-- Category Ratings Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-8 mb-10">
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="font-medium text-on-surface">Bedside Manner</span>
+<span class="text-primary font-bold">4.8</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 96%;"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="font-medium text-on-surface">Wait Time</span>
+<span class="text-primary font-bold">3.2</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 64%;"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="font-medium text-on-surface">Facility Cleanliness</span>
+<span class="text-primary font-bold">5.0</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 100%;"></div>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between text-sm">
+<span class="font-medium text-on-surface">Staff Helpfulness</span>
+<span class="text-primary font-bold">4.5</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%;"></div>
+</div>
+</div>
+</div>
+<!-- Text Area Section -->
+<div class="mb-8">
+<label class="block text-sm font-bold text-on-surface mb-3 uppercase tracking-wider">Detailed Observations</label>
+<textarea class="w-full rounded-xl bg-surface-container-low border-2 border-transparent focus:border-primary/10 focus:ring-0 p-5 text-on-surface placeholder:text-outline/50 transition-all" placeholder="Tell us more about your visit. What stood out? What can we improve?" rows="6"></textarea>
+</div>
+<!-- Options and Submit -->
+<div class="flex flex-col md:flex-row justify-between items-center gap-6">
+<label class="flex items-center gap-3 cursor-pointer group">
+<div class="relative w-12 h-6 bg-surface-container rounded-full transition-all group-hover:bg-primary/20">
+<input class="sr-only peer" type="checkbox"/>
+<div class="absolute top-1 left-1 w-4 h-4 bg-white rounded-full transition-all peer-checked:left-7 peer-checked:bg-primary"></div>
+</div>
+<span class="text-sm font-medium text-on-surface-variant">Submit Anonymously</span>
+</label>
+<button class="px-10 py-4 bg-gradient-to-br from-primary to-primary-container text-white font-headline font-bold text-lg rounded-full shadow-lg hover:shadow-primary/20 transition-all hover:-translate-y-0.5 active:scale-95">
+                            Submit Feedback
+                        </button>
+</div>
+</div>
+<!-- Urgency/Information Banner (Design System Rule) -->
+<div class="mt-8 bg-secondary-container/30 border border-secondary-container rounded-full p-4 flex items-center gap-4">
+<span class="material-symbols-outlined text-on-secondary-container">verified_user</span>
+<p class="text-sm text-on-secondary-fixed-variant leading-tight">
+                        Your honest feedback is protected by our Clinical Integrity Policy. We use this data to award internal quality commendations.
+                    </p>
+</div>
+</div>
+</div>
+</main>
+<!-- Contextual FAB (Hidden as per Rule for Details/Transaction pages) -->
+<!-- Suppression logic applied: Focused task page -->
+</body></html>
